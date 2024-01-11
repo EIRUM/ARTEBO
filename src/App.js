@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import styled from 'styled-components';
 import { BrowserRouter,Route, Routes } from "react-router-dom";
-import DrawingPage from ".components/DrawingPage";
+import DrawingPage from "./components/DrawingPage"; 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
