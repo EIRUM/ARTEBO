@@ -1,16 +1,14 @@
 import React from 'react';
 import '../App.css'; 
 import DrawingCanvas from './Canvas';
+import Sidebar from './Sidebar';
+import styled from 'styled-components';
 
-const Sidebar = () => (
-  <div className="sidebar">
-    <button>버튼1</button>
-    <button>버튼2</button>
-    <button>버튼3</button>
-    <button>버튼4</button>
-  </div>
-);
 
+// const SendButtonStyle = styled.button`
+//   border: 1px solid #000;
+//   height:40vh;
+// `;
 
 const Main = () => (
   <div className="main">
@@ -21,6 +19,7 @@ const Main = () => (
 const App = () => (
   <div className="app">
     <Sidebar />
+    {/* <SendButtonStyle /> */}
     <div className="content">
       <Main />
     </div>
