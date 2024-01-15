@@ -9,10 +9,11 @@ const CanvasWrapper = styled.div`
   display: inline-block;
 `;
 
-const DrawingCanvas = () => { //캔버스
+const DrawingCanvas = (props) => { //캔버스
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [painting, setPainting]=useState(false);
+  let [strokeColor, setStrokeColor] = useState("");
 
   useEffect(()=>{
       const canvas = canvasRef.current;
@@ -22,12 +23,34 @@ const DrawingCanvas = () => { //캔버스
       const ctx= canvas.getContext("2d");
 
       ctx.lineJoin = "round";
-      ctx.lineWidth=2.5;
-      ctx.strokeStyle="#000000"
+      ctx.lineWidth=50;
+      ctx.strokeStyle=props.strokeColor;
+      console.log('지금 색' + props.strokeColor);
       
       setIsDrawing(ctx);
   },[])
+  useEffect(()=>{
+    const canvas = canvasRef.current; 
 
+    const ctx= canvas.getContext("2d");
+    ctx.lineJoin = "round";
+    ctx.strokeStyle=props.strokeColor;
+    if(props.strokeColor == "white"){
+      
+      ctx.lineWidth = 70;
+    }
+    else if(props.strokeColor == "erase"){
+      ctx.clearRect(0,0,1500,600);
+    }
+    else{
+      ctx.lineWidth=50;
+    }
+        
+    console.log('지금 색' + props.strokeColor); 
+    
+
+  },[props.strokeColor])
+  
   const drawfn = e => {
     const mouseX = e.nativeEvent.offsetX;
     const mouseY = e.nativeEvent.offsetY;
