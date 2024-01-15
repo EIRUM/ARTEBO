@@ -7,6 +7,7 @@ const CanvasWrapper = styled.div`
   margin: 20px;
   overflow: hidden;
   display: inline-block;
+  border-radius: 20px;
 `;
 
 const DrawingCanvas = (props) => { //캔버스

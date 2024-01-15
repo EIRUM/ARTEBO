@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import logoImage from '../images/logo.png'
 const HeaderWrapper = styled.header`
-
   height: 1%; 
   width: 100%; 
   display: flex;
@@ -10,7 +9,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const LogoImage = styled.img`
-  width: 140px; 
+  width: 200px; 
   height: auto;
 `;
 
