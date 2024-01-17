@@ -44,7 +44,16 @@ return (
       <Slider {...settings}>
         {data.images.map((image, index) => (
           <div key={index}>
-            <img src={image} alt={`slide ${index}`} />
+           <img
+              src={image}
+              alt={`slide ${index}`}
+               style={{
+                  width: "80%",
+                  height: "600px",
+                  objectFit: "cover",
+                  border: "2px solid #000", // 테두리 스타일 및 색상을 여기에 추가
+                }}
+                />
           </div>
         ))}
       </Slider>

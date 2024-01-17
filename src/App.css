@@ -26,21 +26,14 @@ body, html {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  border: 2px solid #4a2020;
+  border: 2px solid #3ca77a;
 
-}
-
-.slick-prev,
-.slick-next {
-  font-size: 24px;
-  color: #000;
-  
 }
 
 .thumbnail-container {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 150px;
   
 }
 
@@ -56,10 +49,5 @@ body, html {
 .slick-track {
   display: flex;
   align-items: center;
-}
-
-
-.active-thumbnail {
-  border-color: #000;
-  
+  justify-content: center;
 }
