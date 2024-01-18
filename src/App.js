@@ -9,6 +9,8 @@ import PostPage from "./components/PostPage";
 import url1 from './images/url1.jpeg'
 import url2 from './images/url2.jpeg'
 import url3 from './images/url3.jpeg'
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +34,9 @@ const App = ({}) => {
       <Header />
         <Container>
           <Routes>
-            <Route path="/" element={<PostPage data={postData}/>}></Route>
+            {/* <Route path="/" element={<PostPage data={postData}/>}></Route> */}
+            {/* {/* <Route path="/signup" element={<SignIn/>}></Route> */}
+            <Route path="/" element={<SignUp/>}></Route>
             {/* <Route path="/" element={<DrawingPage/>}></Route> */}
             {/* <Route path="/test" element={<test/>}></Route> */}
           </Routes>
