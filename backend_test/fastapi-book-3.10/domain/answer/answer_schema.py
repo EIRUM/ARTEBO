@@ -19,6 +19,6 @@ class Answer(BaseModel):
     content: str
     create_date: datetime.datetime
     user: User | None
-
+    
     class Config:
         orm_mode = True
