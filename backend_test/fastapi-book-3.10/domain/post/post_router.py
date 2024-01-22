@@ -41,20 +41,3 @@ def post_list(db: Session = Depends(get_db),
 def post_detail(post_id: int, db: Session = Depends(get_db)):
     post = post_crud.get_post(db, post_id=post_id)
     return post
-
-
-
-
-# @router.get("/download/{file_name}")
-# async def download_image(file_name: str):
-#     cursor.execute("SELECT file_path FROM images WHERE file_path LIKE ?", (f'%{file_name}',))
-#     file_record = cursor.fetchone()
-
-#     if file_record:
-#         file_location = file_record[0]
-#         if os.path.exists(file_location):
-#             return FileResponse(file_location)
-#         else:
-#             raise HTTPException(status_code=404, detail="File not found")
-#     else:
-#         raise HTTPException(status_code=404, detail="File not found in database")
