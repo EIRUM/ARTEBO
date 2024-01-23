@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, UploadFile, File
+from starlette.responses import FileResponse
 from sqlalchemy.orm import Session
 from starlette import status
 
@@ -12,9 +13,10 @@ router = APIRouter(
     prefix="/api/post",
 )
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG_DIR = os.path.join(BASE_DIR, 'static/')
-SERVER_IMG_DIR = os.path.join('http://localhost:8000/', 'static/')
+BASE_DIR = os.path.join('../', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+STATIC_DIR = os.path.join(BASE_DIR,'static/')
+IMG_DIR = os.path.join(STATIC_DIR,'images/')
+SERVER_IMG_DIR = os.path.join('http://localhost:8000/','static/','images/')
 
 
 @router.post("/create", status_code=status.HTTP_204_NO_CONTENT)
@@ -41,3 +43,9 @@ def post_list(db: Session = Depends(get_db),
 def post_detail(post_id: int, db: Session = Depends(get_db)):
     post = post_crud.get_post(db, post_id=post_id)
     return post
+
+
+@router.get("/images/{post_id}", response_model=post_schema.Post)
+def post_images(post_id: int, db: Session = Depends(get_db)):
+    post = post_crud.get_post(db, post_id=post_id)
+    return FileResponse(f"{post.image_path}.jpg")

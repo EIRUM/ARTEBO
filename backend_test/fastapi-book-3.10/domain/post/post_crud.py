@@ -34,7 +34,7 @@ def create_post(db: Session,  user: User, file):
     db_post = Post(
                         # word=post_create.word,
                         create_date=datetime.now(),
-                        image_path=file.filename,
+                        image_path=file_location,
                         # analyze_text=analyze_text,
                         # human_relationship=analyze_text_list[0],
                         # anxiety=analyze_text_list[1],
