@@ -34,11 +34,11 @@ const App = ({}) => {
       <Header />
         <Container>
           <Routes>
-            {/* <Route path="/" element={<PostPage data={postData}/>}></Route> */}
+            <Route path="/mylist" element={<PostPage data={postData}/>}></Route>
             {/* {/* <Route path="/signup" element={<SignIn/>}></Route> */}
-            <Route path="/" element={<SignUp/>}></Route>
-            {/* <Route path="/" element={<DrawingPage/>}></Route> */}
-            {/* <Route path="/test" element={<test/>}></Route> */}
+            {/* <Route path="/" element={<SignUp/>}></Route> */}
+            <Route path="/" element={<DrawingPage/>}></Route>
+            <Route path="/data" element={<test/>}></Route>
           </Routes>
         </Container>
     </BrowserRouter>

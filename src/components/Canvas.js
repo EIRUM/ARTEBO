@@ -65,6 +65,29 @@ const DrawingCanvas = (props) => { //캔버스
     }
   }
 
+  const saveDrawing = async () => {
+    const canvas = canvasRef.current;
+    const dataURL = canvas.toDataURL(); // 캔버스를 이미지로 변환
+
+    try {
+      const response = await fetch('/api/post/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ drawingData: dataURL }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save drawing');
+      }
+
+      console.log('Drawing saved successfully');
+    } catch (error) {
+      console.error('Error saving drawing:', error);
+    }
+  }
+
   return (
     <CanvasWrapper>
     <canvas 
@@ -75,6 +98,7 @@ const DrawingCanvas = (props) => { //캔버스
       onMouseLeave={()=>setPainting(false)}
       >
     </canvas>
+    <button onClick={saveDrawing}>Save Drawing</button>
     </CanvasWrapper>
   );
 };

@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from './Sidebar';
 
 const CustomNextArrow = (props) => {
   const { onClick } = props;
@@ -23,6 +24,8 @@ const CustomPrevArrow = (props) => {
   );
 };
 
+
+
 const PostPage =({data})=>{
     const [currentSlide, setCurrentSlide] =useState(0);
 
@@ -38,7 +41,10 @@ const PostPage =({data})=>{
       };
 
 return (
+  <div>  
+   
     <div className="post-container">
+      
       <h1>{data.title}</h1>
       <p>{data.date}</p>
       <Slider {...settings}>
@@ -71,6 +77,7 @@ return (
       </div>
       <p>{data.content}</p>
     </div>
+  </div>
   );
 };
 
